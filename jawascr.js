@@ -20,9 +20,8 @@ function removefromcart(index){
 function showcartlist() {
     $(".sidebar").empty();
     console.log("p");
-    cart.forEach(
-        function (cart, index) {
-            var quantity = cart.price * cart.count;
+    cart.forEach(function (cart, index) {
+        var quantity = cart.price * cart.count;
             $(".sidebar").append(`
             <div class="item">
                 <div style="display: flex; height: 20px;">
@@ -37,8 +36,8 @@ function showcartlist() {
                     <p style="margin-bottom: 0%; margin-top: 10px; margin-left: 8px;">Quantity: </p>
                     <p style="margin-bottom: 0%; margin-top: 10px; margin-left: 8px; text-align: right; width: 30px;">`+cart.count+`</p>
                 </div>
-                <div class="del" onclick="removefromcart(`+index+`)">
-                    <img src="img/delete.png" style="width: 30px; height: 30px; float: right;" onclick="    ">
+                <div class="del no-print" id="del" onclick="removefromcart(` + index + `)">
+                    <img class ="dede" src="img/delete.png" style="width: 30px; height: 30px; float: right;">
                 </div>
             </div>
             `)
@@ -55,3 +54,20 @@ function showcartlist() {
     $("#harga").text("Rp."+aftertax);
     console.log(cart);
 }
+
+// function printDiv() 
+// {
+
+//   var divToPrint=document.getElementById('DivIdToPrint');
+
+//   var newWin=window.open('','Print-Window');
+
+//   newWin.document.open();
+
+//   newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+//   newWin.document.close();
+
+//   setTimeout(function(){newWin.close();},10);
+
+// }
